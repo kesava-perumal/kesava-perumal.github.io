@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+    </header>
+    <div class="container">
+        <div id="sidebar-container"></div>
+        <main class="content">
+            <section>
+                <h2>Profile</h2>
+                <p>I'm a QA Engineer with 5 years strong background in designing and implementing robust test automation frameworks. Proficient in writing efficient, scalable, and maintainable test scripts using Python and Java. Skilled in identifying and troubleshooting complex software issues, and providing data-driven insights to improve product quality. Passionate about staying up-to-date with the latest testing methodologies and technologies to deliver exceptional software products</p>
+
+                <h2>Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">Quality Assurance Technician</div>
+                        <div class="timeline-organisation">Amazon, Chennai</div>
+                        <div class="timeline-date">2022 - Present</div>
+                        <button class="expand-btn" type="button">Show Details</button>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Designed and developed end-to-end test automation frameworks using
+                                    Selenium and Appium to ensure the quality of Fire TV applications.</li>
+                                <li>Conducted system integration testing for FireTV hardware, validating HDMI
+                                    connectivity, remote control pairing, audio output systems, and streaming
+                                    performance across multiple device models.</li>
+                                <li>Implemented a comprehensive test suite that included unit tests, integration
+                                    tests, and UI tests, resulting in a 30% reduction in manual testing efforts</li>
+                                <li>Developed automated API testing solutions with Playwright to validate internal
+                                    Amazon services, streamlining the testing process and ensuring reliable service
+                                    integration across multiple business units</li>
+                                <li>Conducted performance testing using Grafana k6 and identified performance
+                                    bottlenecks, leading to a 20% improvement in application responsiveness.</li>
+                                <li>Spearheaded the implementation of automated regression testing in the AWS
+                                    device farm, leveraging Jenkins (CI/CD) to execute test cases for each software
+                                    release</li>
+                                <li>Leveraged Gen-AI (Amazon Bedrock) as a question-answering tool to generate
+                                    novel test cases from existing bug reports, significantly expanding test
+                                    coverage.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Quality Assurance Associate</div>
+                        <div class="timeline-organisation">Tata Consultancy Services, Chennai</div>
+                        <div class="timeline-date">2020 - 2022</div>
+                        <button class="expand-btn" type="button">Show Details</button>
+                        <div class="timeline-details">
+                            <ul>
+                                <li>Implemented a data-driven automation framework using Selenium, Java, and
+                                    TestNG to streamline testing of an insurance policy creation application.</li>
+                                <li>Co-ordinated with product owners and designed test plan based on criteria
+                                    provided by business team</li>
+                                <li>Analysed test results, generated comprehensive reports, and presented findings
+                                    to the development team to drive process improvements.</li>
+                                <li>Participated in Agile ceremonies, such as sprint planning, daily standups, and
+                                    retrospectives, to ensure effective collaboration and alignment with the team.</li>
+                                <li>Collaborated with cross-functional teams to identify and prioritize critical
+                                    software issues, and provided timely and actionable feedback to improve the
+                                    overall product quality.</li>
+                                <li>Developed and maintained test documentation, including test cases, test
+                                    scripts, and test plans, to ensure comprehensive coverage of all functional
+                                    requirements.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">Bachelor of Computer Applications</div>
+                        <div class="timeline-organisation">Dr. MGR Educational and Research Institute</div>
+                        <div class="timeline-date">2017 - 2020</div>
+                    </div>
+        
+                </div>
+
+                <h2>Certifications</h2>
+                <ul>
+                    <li ><a class="hyperlink" href="https://www.lambdatest.com/certified/SJA-JH3TEH">LambdaTest - Selenium Java 101 Certification</a></li>
+                    <li class="hyperlink"><a href="https://www.istqb.in/foundation/certified-tester2/123831-kesava-perumal">ISTQB - Certified Tester Foundation Level</a></li>
+                </ul>
+
+                <h2>Skills</h2>
+                <div class="skills-lists">
+                    <div>
+                        <h3>Programming Languages</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>Typescript</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Automation Frameworks</h3>
+                        <ul>
+                            <li>Selenium</li>
+                            <li>Appium</li>
+                            <li>PyTest</li>
+                            <li>TestNG</li>
+                            <li>Playwright</li>
+                            <li>Grafana k6</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Tools</h3>
+                        <ul>
+                            <li>Postman</li>
+                            <li>Jenkins</li>
+                            <li>AWS</li>
+                            <li>Git</li>
+                            <li>JIRA</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="footer-container"></div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('footer-container').innerHTML = html;
+        });
+    </script>
+    <script src="js/main.js"></script>
+    <script>
+        fetch('sidebar.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('sidebar-container').innerHTML = html;
+
+            // Wait until sidebar is loaded, then add event listener
+            const hamburger = document.getElementById('hamburger');
+            const sidebar = document.getElementById('sidebar');
+            hamburger.addEventListener('click', function () {
+                sidebar.classList.toggle('open');
+                document.body.classList.toggle('sidebar-open');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+    </header>
+    <div class="container">
+    <div id="sidebar-container"></div>
+        <main class="content">
+            <section id="home">
+                <div style="font-size: 1.4rem; font-weight: 400">Hey Folks 👋</div>
+                <div style="font-size: 3rem; font-weight: 700;">I'm Kesava Perumal</div>
+                <div style="font-size: 1.8rem; font-weight: 700;">QA Technician</div>
+                <div style="font-size: 1rem; font-weight: 400; margin-top: 10px;">This is my personal portfolio website showcasing my projects, experience, and skills.</div>
+            </section>
+
+            <hr class="section-divider">
+
+            <section id="projects">
+            </section>
+            <div id="footer-container"></div>
+        </main>
+    </div>
+
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('footer-container').innerHTML = html;
+        });
+    </script>
+    <script src="js/main.js"></script>
+    <script>
+        fetch('sidebar.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('sidebar-container').innerHTML = html;
+
+            // Wait until sidebar is loaded, then add event listener
+            const hamburger = document.getElementById('hamburger');
+            const sidebar = document.getElementById('sidebar');
+            hamburger.addEventListener('click', function () {
+                sidebar.classList.toggle('open');
+                document.body.classList.toggle('sidebar-open');
+            });
+        });
+
+        fetch('projects.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('projects').innerHTML = html;
+        });
+    </script>
+</body>
+</html>
